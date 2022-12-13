@@ -9,8 +9,10 @@ import java.util.Scanner;
 public class rockPaperScissors {
     public static void main(String[] args) {
         List<String> matches = readFile();
+
         int partOneScore = scoreTournament(matches);
         System.out.println("Part one total score: " + partOneScore);
+
         List<String> partTwoMatches = chooseShape(matches);
         int partTwoScore = scoreTournament(partTwoMatches);
         System.out.println("Part two total score: " + partTwoScore);

@@ -8,6 +8,7 @@ public class calorieCounting {
     public static void main(String[] args) {
         List<String> calories = new ArrayList<>();
         List<Integer> totalCalories = new ArrayList<>();
+
         try (Scanner scanner = new Scanner(Paths.get("src/main/java/dayOne/calories.txt"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
@@ -28,6 +29,7 @@ public class calorieCounting {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         System.out.println("Part One: " + Collections.max(totalCalories));
         System.out.println("Part Two: " + totalCalories.stream()
                 .sorted(Comparator.reverseOrder())
