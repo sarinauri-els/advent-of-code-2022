@@ -1,14 +1,13 @@
 package dayFour;
 
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+
+import static utilities.Utilities.readFile;
 
 public class CampCleanup {
     public static void main(String[] args) {
-        List<String> assignments = readFile();
+        List<String> assignments = readFile("src/main/java/dayFour/assignments.txt");
         int fullyContained = 0;
         int overlaps = 0;
         for (String assignment : assignments) {
@@ -24,18 +23,6 @@ public class CampCleanup {
         }
         System.out.println("Part 1 Answer: " + fullyContained);
         System.out.println("Part 2 Answer: " + overlaps);
-    }
-
-    private static List<String> readFile() {
-        List<String> lines = new ArrayList<>();
-        try (Scanner scanner = new Scanner(Paths.get("src/main/java/dayFour/assignments.txt"))) {
-            while(scanner.hasNextLine()) {
-                lines.add(scanner.nextLine());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return lines;
     }
 
     private static boolean isFullyContained(int[] assignmentOne, int[] assignmentTwo) {

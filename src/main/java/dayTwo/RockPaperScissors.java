@@ -1,14 +1,14 @@
 package dayTwo;
 
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
+
+import static utilities.Utilities.readFile;
 
 public class RockPaperScissors {
     public static void main(String[] args) {
-        List<String> matches = readFile();
+        List<String> matches = readFile("src/main/java/dayTwo/strategy.txt");
 
         int partOneScore = scoreTournament(matches);
         System.out.println("Part one total score: " + partOneScore);
@@ -16,19 +16,6 @@ public class RockPaperScissors {
         List<String> partTwoMatches = chooseShape(matches);
         int partTwoScore = scoreTournament(partTwoMatches);
         System.out.println("Part two total score: " + partTwoScore);
-    }
-
-    private static List<String> readFile() {
-        List<String> lines = new ArrayList<>();
-        try (Scanner scanner = new Scanner(Paths.get("src/main/java/dayTwo/strategy.txt"))) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                lines.add(line);
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        return lines;
     }
 
     private static int scoreTournament(List<String> matches) {

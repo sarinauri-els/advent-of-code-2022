@@ -1,17 +1,14 @@
 package dayThree;
 
-// find items that appear in both compartments
-// find sum of their points
-
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
+
+import static utilities.Utilities.readFile;
 
 public class RucksackReorganization {
     public static void main(String[] args) {
-        List<String> rucksacks = readFile();
+        List<String> rucksacks = readFile("src/main/java/dayThree/rucksacks.txt");
 
         List<String> commonItems = new ArrayList<>();
         for (String rucksack : rucksacks) {
@@ -34,18 +31,6 @@ public class RucksackReorganization {
 
         int sumOfPrioritiesForBadges = sumOfPriorities(badges);
         System.out.println("Part 2 Answer: " + sumOfPrioritiesForBadges);
-    }
-
-    private static List<String> readFile() {
-        List<String> rucksacks = new ArrayList<>();
-        try(Scanner scanner = new Scanner(Paths.get("src/main/java/dayThree/rucksacks.txt"))) {
-            while (scanner.hasNextLine()) {
-                rucksacks.add(scanner.nextLine());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return rucksacks;
     }
 
     private static List<String> findCommonItems(String compartmentA, String compartmentB) {
