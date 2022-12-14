@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class rockPaperScissors {
+public class RockPaperScissors {
     public static void main(String[] args) {
         List<String> matches = readFile();
 

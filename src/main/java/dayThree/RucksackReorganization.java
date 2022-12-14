@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class rucksackReorganization {
+public class RucksackReorganization {
     public static void main(String[] args) {
         List<String> rucksacks = readFile();
 
